@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LENS — Corporate & Event Photography</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⦿</text></svg>" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <div class="shutter-overlay"></div>
+
+  <!-- camera background — persists as blurred backdrop across all sections -->
+  <div class="cam-bg fixed inset-0 w-full h-full pointer-events-none z-0">
+    <img src="/images/camera-hero.jpg" alt="" class="cam-bg-img w-full h-full object-cover" />
+    <div class="cam-bg-veil absolute inset-0"></div>
+  </div>
+
+  <div class="orb fixed top-[15%] left-[8%] w-[300px] h-[300px] rounded-full pointer-events-none z-0" style="background:hsla(220,60%,40%,0.15)"></div>
+  <div class="orb fixed bottom-[25%] right-[5%] w-[400px] h-[400px] rounded-full pointer-events-none z-0" style="background:hsla(320,50%,35%,0.12)"></div>
+  <div class="orb fixed top-[50%] left-[50%] w-[250px] h-[250px] rounded-full pointer-events-none z-0" style="background:hsla(40,70%,45%,0.1)"></div>
+
+  <nav class="border-glow fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between bg-black/30 backdrop-blur-md">
+    <span class="text-sm font-mono tracking-[0.3em] uppercase text-white/80">LENS</span>
+    <div class="flex items-center gap-8 relative">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#milestones" class="nav-link">Milestones</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <span class="nav-indicator"></span>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <div class="hero-lens-layer absolute inset-0 w-full h-full">
+      <img src="/images/camera-lens.jpg" alt="" class="w-full h-full object-cover" />
+    </div>
+    <div class="hero-mask absolute inset-0 w-full h-full pointer-events-none z-[2]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80 pointer-events-none z-[3]"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center text-center px-6">
+      <div class="hero-text max-w-3xl mx-auto">
+        <p class="hero-label font-mono text-[10px] tracking-[0.4em] uppercase text-white/40 mb-6">Corporate &amp; Event Photography</p>
+        <h1 class="text-7xl md:text-8xl lg:text-9xl font-light tracking-tight text-white leading-none mb-4">
+          Through the<br/><span class="font-medium text-white/90">Lens</span>
+        </h1>
+        <p class="hero-tagline text-base text-white/40 max-w-md mx-auto mt-6 leading-relaxed">
+          Every event tells a story. I make sure it's seen.
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-4">
+          <a href="#gallery" class="btn-kinetic border-glow text-white/90">View Portfolio</a>
+          <a href="#contact" class="text-sm tracking-widest uppercase text-white/30 hover:text-white/70 transition-colors">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+      <span class="text-[10px] tracking-[0.3em] uppercase font-mono text-white/30">Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24" class="animate-bounce" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="1" width="14" height="22" rx="7"/><line x1="8" y1="8" x2="8" y2="13"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="section-panel flex-col min-h-screen relative z-10" style="background:rgba(10,10,10,0.85)">
+    <div class="w-full max-w-7xl mx-auto">
+      <div class="mb-12 fade-section">
+        <p class="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">01 / Gallery</p>
+        <h2 class="text-4xl md:text-5xl font-light text-white">Selected Works</h2>
+      </div>
+      <div class="border-glow border-glow-outside rounded-2xl relative">
+        <div class="gallery-grid rounded-2xl overflow-hidden">
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-01.jpg" alt="Corporate marathon event" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/125s f/2.8</span><span class="text-xs text-white/50">ISO 100</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-02.jpg" alt="Wedding ceremony portrait" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/200s f/1.4</span><span class="text-xs text-white/50">ISO 200</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-03.jpg" alt="Company gala evening" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/60s f/4.0</span><span class="text-xs text-white/50">ISO 400</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-04.jpg" alt="Team building event B&W" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/500s f/5.6</span><span class="text-xs text-white/50">ISO 800</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-05.jpg" alt="Outdoor corporate retreat" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/30s f/11</span><span class="text-xs text-white/50">ISO 100</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-06.jpg" alt="Conference keynote speaker" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/1000s f/2.0</span><span class="text-xs text-white/50">ISO 400</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-07.jpg" alt="Aerial event venue" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/80s f/3.5</span><span class="text-xs text-white/50">ISO 200</span></div>
+        </div>
+        <div class="gallery-item bokeh-blur is-blurred">
+          <img src="/images/gallery-08.jpg" alt="Product launch event" loading="lazy" />
+          <div class="meta"><span class="text-xs font-mono tracking-wider text-white/70">1/250s f/1.8</span><span class="text-xs text-white/50">ISO 100</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section-panel min-h-screen relative z-10" style="background:rgba(10,10,10,0.85)">
+    <div class="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center fade-section">
+      <div>
+        <p class="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">02 / About</p>
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
+          Documenting<br/>
+          <span class="font-medium">every moment</span>
+        </h2>
+        <p class="text-white/40 leading-relaxed mb-6 text-sm">
+          From company marathons to corporate galas and private weddings — I capture
+          the energy, emotion, and authenticity that make your event unforgettable.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="service-tag">Corporate Events</span>
+          <span class="service-tag">Weddings</span>
+          <span class="service-tag">Marathons</span>
+          <span class="service-tag">Galas</span>
+          <span class="service-tag">Conferences</span>
+          <span class="service-tag">Brand Campaigns</span>
+        </div>
+        <div class="flex flex-wrap gap-8">
+          <div>
+            <p class="text-2xl font-light text-white">12+</p>
+            <p class="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">Years</p>
+          </div>
+          <div>
+            <p class="text-2xl font-light text-white">400+</p>
+            <p class="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">Events</p>
+          </div>
+          <div>
+            <p class="text-2xl font-light text-white">80+</p>
+            <p class="text-[10px] tracking-[0.3em] uppercase text-white/30 font-mono">Weddings</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-glow border-glow-outside rounded-2xl relative">
+        <div class="about-image-wrap glass-card p-0 overflow-hidden">
+        <img src="/images/gallery-01.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-02.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-03.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-04.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-05.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-06.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-07.jpg" alt="" class="about-slide" />
+        <img src="/images/gallery-08.jpg" alt="" class="about-slide" />
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section-panel min-h-screen relative z-10" style="background:rgba(10,10,10,0.85)">
+    <div class="w-full max-w-6xl mx-auto fade-section">
+      <div>
+      <p class="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">03 / Services</p>
+      <h2 class="text-4xl md:text-5xl font-light text-white mb-3">What I cover</h2>
+      <p class="text-white/40 text-sm max-w-lg mb-14 leading-relaxed">Every event is unique — here's how I can help tell your story.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="corporate">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="6" y="20" width="36" height="22" rx="2"/><path d="M16 20V12a2 2 0 012-2h12a2 2 0 012 2v8"/><path d="M22 28v4M26 28v4"/><path d="M14 30H6M42 30h-8"/></svg></div>
+          <h3 class="service-title">Corporate Events</h3>
+          <p class="service-desc">Company retreats, annual parties, product launches, and executive portraits.</p>
+        </div>
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="weddings">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M24 14c-4-6-14-4-14 4 0 8 14 18 14 18s14-10 14-18c0-8-10-10-14-4z"/></svg></div>
+          <h3 class="service-title">Weddings</h3>
+          <p class="service-desc">Ceremonies, receptions, engagement shoots, and destination weddings.</p>
+        </div>
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="marathons">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="10" r="4"/><path d="M16 26l4-6 8 2 6-4"/><path d="M16 26l-4 12M20 20l-2 14M28 22l4 14M20 34H8M28 34h12"/></svg></div>
+          <h3 class="service-title">Marathons &amp; Races</h3>
+          <p class="service-desc">Charity runs, corporate fitness events, finish-line celebrations, and action shots.</p>
+        </div>
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="galas">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 44V16l12-8 12 8v28"/><path d="M8 44h32"/><path d="M20 24h8M20 30h8M20 36h8"/></svg></div>
+          <h3 class="service-title">Galas &amp; Awards</h3>
+          <p class="service-desc">Formal dinners, award ceremonies, red carpets, and VIP receptions.</p>
+        </div>
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="conferences">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="18" y="6" width="12" height="16" rx="2"/><path d="M6 42V30a4 4 0 014-4h28a4 4 0 014 4v12"/><path d="M22 36h4"/><path d="M14 36H6M42 36h-8"/></svg></div>
+          <h3 class="service-title">Conferences</h3>
+          <p class="service-desc">Keynote sessions, panel discussions, trade shows, and networking events.</p>
+        </div>
+        <div class="service-card border-glow glass-card p-6 md:p-8 glass-noise" data-service="brand">
+          <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="3"/></svg></div>
+          <h3 class="service-title">Brand Campaigns</h3>
+          <p class="service-desc">Lifestyle shoots, product photography, editorial, and social media content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section-panel min-h-screen relative z-10" style="background:rgba(10,10,10,0.85)">
+    <div class="w-full max-w-4xl mx-auto text-center fade-section">
+      <p class="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">04 / Contact</p>
+      <h2 class="text-4xl md:text-5xl font-light text-white mb-6">Book your event</h2>
+      <p class="text-white/40 max-w-md mx-auto mb-10 text-sm leading-relaxed">
+        Available for corporate events, private celebrations, and brand campaigns.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="mailto:hello@lens.studio" class="btn-kinetic border-glow text-white/90 w-full sm:w-auto">Start a Project</a>
+      </div>
+      <div class="mt-16 flex justify-center gap-10 text-white/20 text-sm font-mono tracking-wider">
+        <span>hello@lens.studio</span>
+        <span>+1 (555) 000-0000</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MILESTONES ===== -->
+  <section id="milestones" class="section-panel min-h-screen relative z-10" style="background:rgba(10,10,10,0.85)">
+    <div class="w-full max-w-6xl mx-auto fade-section">
+      <div>
+      <p class="font-mono text-[10px] tracking-[0.4em] uppercase text-white/30 mb-3">05 / Milestones</p>
+      <h2 class="text-4xl md:text-5xl font-light text-white mb-3">Moments that matter</h2>
+      <p class="text-white/40 text-sm max-w-md mb-14 leading-relaxed">Every number tells a story — here's what we've built together.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div class="border-glow glass-card p-6 md:p-8 glass-noise text-center">
+          <p class="stat-number text-4xl md:text-5xl font-light text-white mb-3" data-target="12483">0</p>
+          <span class="pill">Captures</span>
+        </div>
+        <div class="border-glow glass-card p-6 md:p-8 glass-noise text-center">
+          <p class="stat-number text-4xl md:text-5xl font-light text-white mb-3" data-target="48">0</p>
+          <span class="pill">Clients</span>
+        </div>
+        <div class="border-glow glass-card p-6 md:p-8 glass-noise text-center">
+          <p class="stat-number text-4xl md:text-5xl font-light text-white mb-3" data-target="16">0</p>
+          <span class="pill">Marathons</span>
+        </div>
+        <div class="border-glow glass-card p-6 md:p-8 glass-noise text-center">
+          <p class="stat-number text-4xl md:text-5xl font-light text-white mb-3" data-target="9">0</p>
+          <span class="pill">Galas</span>
+        </div>
+      </div>
+      <div class="border-glow mt-14 glass-card p-8 md:p-10 glass-noise text-center max-w-3xl mx-auto">
+        <p class="text-white/30 text-sm md:text-base italic leading-relaxed">
+          "Working with LENS elevated our annual gala — the images told our story better than words ever could."
+        </p>
+        <div class="mt-5 flex items-center justify-center gap-4">
+          <span class="w-8 h-px bg-white/10"></span>
+          <span class="pill">Sarah Mitchell, Event Director</span>
+          <span class="w-8 h-px bg-white/10"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY MODAL ===== -->
+  <div id="gallery-modal" class="gallery-modal fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8 pointer-events-none">
+    <div class="gallery-modal-bg absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    <div class="gallery-modal-content border-glow relative max-w-5xl w-full max-h-[90vh] flex flex-col pointer-events-auto">
+      <button class="gallery-modal-close absolute -top-10 right-0 text-white/30 hover:text-white text-lg transition-colors z-10">✕</button>
+      <div class="relative flex items-center justify-center">
+        <button class="gallery-modal-prev absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/70 text-2xl transition-colors z-10 px-4 py-8">‹</button>
+        <button class="gallery-modal-next absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/70 text-2xl transition-colors z-10 px-4 py-8">›</button>
+        <img src="" alt="" class="w-full max-h-[80vh] object-contain rounded-xl" draggable="false" />
+      </div>
+      <div class="mt-4 flex items-center justify-between text-white/30 text-xs font-mono tracking-wider">
+        <span class="gallery-modal-alt"></span>
+        <span class="gallery-modal-meta"></span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-glow relative z-10 py-8 px-6 flex items-center justify-between text-[10px] font-mono tracking-[0.2em] uppercase text-white/15 border-t border-white/5" style="background:rgba(10,10,10,0.85)">
+    <span>&copy; 2026 LENS Events</span>
+    <span>Corporate &amp; Event Photography</span>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

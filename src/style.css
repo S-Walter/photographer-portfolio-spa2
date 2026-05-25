@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply m-0 p-0 box-border; }
+  html { @apply scroll-smooth; }
+  body { @apply bg-surface text-white font-sans antialiased overflow-x-hidden; }
+  ::selection { @apply bg-white/20 text-white; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-white/10 rounded-full; }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .glass-card {
+    @apply glass rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .glass-noise { position: relative; }
+  .glass-noise::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    z-index: 1;
+  }
+}
+
+.section-panel {
+  @apply relative min-h-screen w-full flex items-center justify-center;
+  padding: 6rem 1.5rem;
+}
+
+/* ========= SHUTTER ========= */
+.shutter-overlay {
+  @apply fixed inset-0 pointer-events-none z-50;
+  background: black;
+  opacity: 0;
+  transition: opacity 0.05s;
+}
+
+/* ========= CAMERA BODY BACKGROUND ========= */
+.cam-bg-img {
+  will-change: transform, filter;
+  filter: blur(0px) brightness(1);
+}
+.cam-bg-veil {
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* ========= HERO ========= */
+.hero-lens-layer {
+  opacity: 0;
+  z-index: 1;
+}
+.hero-lens-layer img {
+  will-change: transform, opacity;
+}
+.hero-mask {
+  background: radial-gradient(circle at 50% 50%, transparent 25%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,0.8) 100%);
+  opacity: 0;
+  mix-blend-mode: multiply;
+  will-change: opacity;
+}
+
+/* ========= KINETIC BORDER BUTTON ========= */
+.btn-kinetic {
+  @apply relative inline-flex items-center justify-center px-8 py-4 rounded-full font-medium text-sm
+         tracking-widest uppercase bg-surface-light border-0 cursor-pointer overflow-hidden;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-kinetic::before {
+  content: '';
+  @apply absolute inset-0 rounded-full;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0.9)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin-gradient 3s linear infinite;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-gradient { to { --angle: 360deg; } }
+.btn-kinetic:hover { transform: scale(1.04); }
+
+/* ========= BORDER GLOW RING ========= */
+.border-glow-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), rgba(255,200,100,0.6) 0%, rgba(255,120,80,0.3) 30%, transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  will-change: background, opacity;
+}
+.border-glow-outside .border-glow-ring {
+  inset: -2px;
+}
+
+/* ambient orbs */
+.orb {
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform, background;
+}
+
+/* ========= ABOUT SLIDESHOW ========= */
+.about-image-wrap {
+  @apply relative rounded-2xl;
+  aspect-ratio: 1;
+  min-height: 360px;
+  background: rgba(255,255,255,0.02);
+}
+
+.about-slide {
+  @apply absolute inset-0 w-full h-full object-cover;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.about-slide:first-child {
+  opacity: 1;
+}
+
+.pill {
+  @apply inline-block px-4 py-1.5 rounded-full text-[11px] font-mono tracking-wider uppercase;
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.3s, color 0.3s;
+}
+.pill:hover {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+}
+.service-tag { @apply pill; }
+
+/* ========= NAV ========= */
+.nav-link {
+  @apply relative text-sm font-medium tracking-widest uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.nav-link:hover { @apply text-white; }
+
+.nav-indicator {
+  position: absolute;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255,200,100,0.7), rgba(255,120,80,0.5));
+  pointer-events: none;
+  will-change: transform, width, opacity;
+  opacity: 0;
+}
+
+/* ========= GALLERY ========= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.gallery-item {
+  @apply relative overflow-hidden cursor-pointer;
+  aspect-ratio: 3/2;
+  background: rgba(255,255,255,0.02);
+}
+.gallery-item .meta {
+  @apply absolute bottom-0 left-0 right-0 p-4 flex justify-between items-end;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.gallery-item:hover .meta { opacity: 1; }
+.gallery-item img {
+  @apply w-full h-full object-cover;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+.bokeh-blur {
+  transition: filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bokeh-blur.is-blurred { filter: blur(24px) brightness(0.3); }
+
+/* ========= GALLERY MODAL ========= */
+.gallery-modal {
+  visibility: hidden;
+  will-change: opacity;
+}
+.gallery-modal.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+.gallery-modal-bg {
+  will-change: opacity;
+  pointer-events: auto;
+}
+.gallery-modal-content {
+  will-change: transform, opacity;
+}
+.gallery-modal-content img {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* ========= SERVICES ========= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.service-card {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%);
+}
+.service-card:hover::after {
+  opacity: 1;
+}
+.service-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.service-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1.25rem;
+  color: rgba(255,255,255,0.25);
+  will-change: transform;
+  transition: color 0.4s ease;
+}
+.service-card:hover .service-icon {
+  color: rgba(255,255,255,0.6);
+}
+.service-title {
+  @apply text-base font-light text-white mb-2 tracking-wide;
+}
+.service-desc {
+  @apply text-xs leading-relaxed;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ========= MILESTONES ========= */
+/* grid via Tailwind utility classes */
