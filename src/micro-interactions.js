@@ -46,7 +46,7 @@ export function initMicroInteractions() {
 
   // section nav highlight with animated indicator
   const navLinks = document.querySelectorAll('.nav-link');
-  const panels = document.querySelectorAll('.section-panel');
+  const panels = document.querySelectorAll('.section-panel, #hero');
   const indicator = document.querySelector('.nav-indicator');
   let activeId = null;
 

@@ -14,7 +14,7 @@ GSAP scroll narrative + Tailwind CSS. Image-based (no Three.js).
 ## Architecture
 
 ```
-index.html          — single HTML, all sections (hero, gallery, about, services, contact, milestones)
+index.html          — single HTML, all sections (hero, gallery, about, services, milestones, contact)
 src/
   main.js           — entrypoint: wires scroll-animations + micro-interactions + modal + border-glow
   scroll-animations.js — ScrollTrigger: hero lens crossfade, bg blur, shutter blink, gallery stagger,
